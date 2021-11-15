@@ -43,20 +43,21 @@ jobs:
         asset_name: TFTrue.dll
         tag: ${{ github.ref }}
         overwrite: true
-    - name: switching from HTTPS to SSH
-      run: git remote set-url origin ${{ secrets.ssh }}
-    - name: check for changes
-      run: git status
+
     - name: copy Binary
       run: cp ./TFTrue.dll ../release/TFTrue.dll -vf
-    - name: stage changed files
-      run: git add .
-    - name: commit changed files
-      run: git commit -m "New Windows build pushed"
-    - name: fetch from public
-      run: git fetch origin actions
-    - name: push code to public
-      run: git push origin HEAD:actions
+
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Update Windows binary" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
 
   build-linux:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -92,17 +93,18 @@ jobs:
         asset_name: TFTrue.so
         tag: ${{ github.ref }}
         overwrite: true
-    - name: switching from HTTPS to SSH
-      run: git remote set-url origin ${{ secrets.ssh }}
-    - name: check for changes
-      run: git status
+
     - name: copy Binary
       run: cp ./TFTrue.so ../release/TFTrue.so -vf
-    - name: stage changed files
-      run: git add .
-    - name: commit changed files
-      run: git commit -m "New Linux build pushed"
-    - name: fetch from public
-      run: git fetch origin actions
-    - name: push code to public
-      run: git push origin HEAD:actions
+
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Update Windows binary" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}

@@ -51,6 +51,7 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        git fetch
         git commit -m "Update Windows binary" -a
 
     - name: Push changes
@@ -101,7 +102,8 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git commit -m "Update Windows binary" -a
+        git fetch
+        git commit -m "Update Linux binary" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master

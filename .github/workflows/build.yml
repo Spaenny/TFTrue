@@ -45,7 +45,7 @@ jobs:
         overwrite: true
 
     - name: copy Binary
-      run: cp ./TFTrue.dll ../release/TFTrue.dll -vf
+      run: cp D:\a\TFTrue\TFTrue\build\Release\TFTrue.dll D:\a\TFTrue\TFTrue\release\TFTrue.dll
 
     - name: Commit files
       run: |
@@ -95,7 +95,7 @@ jobs:
         overwrite: true
 
     - name: copy Binary
-      run: cp ./TFTrue.so ../release/TFTrue.so -vf
+      run: cp /home/runner/work/TFTrue/TFTrue/build/TFTrue.so /home/runner/work/TFTrue/TFTrue/release/TFTrue.so -vf
 
     - name: Commit files
       run: |

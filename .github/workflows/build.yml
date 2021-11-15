@@ -23,7 +23,7 @@ jobs:
     - name: Choco install Visual Studio 15 2017
       uses: crazy-max/ghaction-chocolatey@v1
       with:
-        args: install visualstudio2017buildtools
+        args: install visualstudio2017community
 
     - name: Checkout repository and submodules
       uses: actions/checkout@v2

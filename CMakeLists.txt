@@ -143,7 +143,6 @@ if(WIN32)
     )
 
     target_compile_options(TFTrue PUBLIC
-        -Wall
         -fno-strict-aliasing
         -fpermissive
         -fvisibility-inlines-hidden

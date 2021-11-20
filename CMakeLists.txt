@@ -144,14 +144,6 @@ if(WIN32)
 
     target_compile_options(TFTrue PUBLIC
         -Wall
-        -Wno-class-memaccess
-        -Wno-delete-non-virtual-dtor
-        -Wno-invalid-offsetof
-        -Wno-overloaded-virtual
-        -Wno-reorder
-        -Wno-sign-compare
-        -Wno-unknown-pragmas
-        -Wno-unused
         -fno-strict-aliasing
         -fpermissive
         -fvisibility-inlines-hidden

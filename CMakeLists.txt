@@ -141,9 +141,37 @@ if(WIN32)
         ${CMAKE_CURRENT_SOURCE_DIR}/source-sdk-2013/mp/src/lib/public/vstdlib.lib
         legacy_stdio_definitions.lib
     )
- 
+
+    target_compile_options(TFTrue PUBLIC
+        -Wall
+        -Wno-class-memaccess
+        -Wno-delete-non-virtual-dtor
+        -Wno-invalid-offsetof
+        -Wno-overloaded-virtual
+        -Wno-reorder
+        -Wno-sign-compare
+        -Wno-unknown-pragmas
+        -Wno-unused
+        -fno-strict-aliasing
+        -fpermissive
+        -fvisibility-inlines-hidden
+        -fvisibility=hidden
+        -m32
+        -march=pentium3
+        -mmmx
+        -msse
+        -std=c++11
+    )
+    
     target_link_options(TFTrue PUBLIC
         -OPT:REF
         -SAFESEH:NO
+        -lrt 
+        -m32 
+        -Wl,--no-gnu-unique 
+        -fuse-ld=gold 
+        -static-libstdc++ 
+        -static-libgcc
+        -Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/version-script
     )
 endif()
